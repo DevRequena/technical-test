@@ -1,6 +1,6 @@
 import { Box } from "@mui/material";
 
-export default function Logo({ height, width, style }) {
+export default function Logo({ height, width, style = {} }) {
 
 
   return (

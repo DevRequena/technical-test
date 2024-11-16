@@ -1,7 +1,7 @@
 import React from 'react';
 import { Box, Typography } from '@mui/material';
 
-const ServiceCardComponent = ({ icon, label = 'Other Services' }) => {
+const ServiceCardComponent = ({ icon, label = 'Other Services', isRelative = false, top, left, right, bottom}) => {
   return (
     <Box
       sx={{
@@ -16,6 +16,11 @@ const ServiceCardComponent = ({ icon, label = 'Other Services' }) => {
         boxShadow: '0px 4px 10px rgba(0, 0, 0, 0.1)',
         textAlign: 'center',
         padding: 2,
+        position: isRelative ? 'relative' : 'static',
+        top: top,
+        left: left,
+        right: right,
+        bottom: bottom
       }}
     >
       <Box

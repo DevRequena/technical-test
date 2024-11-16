@@ -10,6 +10,7 @@ export const MainLayout = ({ children }) => {
         display: 'flex',
         flexDirection: 'column',
         minHeight: '100vh',
+        backgroundColor: '#F3F6FB'
       }}
     >
       <Nav />

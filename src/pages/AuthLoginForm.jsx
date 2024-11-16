@@ -63,37 +63,38 @@ export default function AuthLoginForm() {
 
   return (
     <Box display="flex" maxHeight="100vh" bgcolor="#f8f9fa">
+
       <Box
         display="flex"
         justifyContent="center"
         alignItems="center"
-        width='60vw'
+        width="70vw"
+        height="100vh"
+        position="relative"
       >
         <img
-          src="/assets/WaveLogin.png"
-          alt="Wave Login"
-          style={{ height: '100vh', width: '100%', backgroundColor: '#F8F8F8'  }}
-        />
-        <Logo
-          height={'330px'}
-          width={'330px'}
+          src="/assets/waveLogin.png"
+          alt="Waves"
           style={{
-            position: 'absolute',
-            zIndex: 1,
-            top: '50%',
-            left: '50%',
-            transform: 'translate(-50%, -50%)'
+            position: 'relative',
+            width: '100%',
+            height: '100%',
+            objectPosition: 'left',
           }}
         />
+
+          <Logo alt="Logo" width= '300px' height='300px' style={{zIndex: 1, position: 'absolute', top: '30%', right: '40%'}} />
+
       </Box>
 
 
+
       <Box
-        flex="0 0 30%"
+        flex="0 0 50%"
         display="flex"
         justifyContent="center"
         alignItems="center"
-        sx={{marginLeft: '-100px', backgroundColor: "#F8F8F8"}}
+        sx={{ marginLeft: '-100px', backgroundColor: "#F8F8F8" }}
       >
         <Box width="60vw" maxWidth="400px" p={4}>
           <Typography mb={2} color="#4D4F5C" letterSpacing={'0px'} fontWeight={600} fontFamily='Gibson-SemiBold' fontSize={'18px'} >
@@ -172,7 +173,7 @@ export default function AuthLoginForm() {
             </Stack>
 
             <Stack alignItems="center" justifyContent="center" sx={{ marginTop: 3, width: '100%' }}>
-              <GeneralButton isSubmitting={isSubmitting} label={'INICIAR SESION'} sx={{fontWeight: 'bold', fontSize: '16px', width: '200px', height: '65px'}} />
+              <GeneralButton isSubmitting={isSubmitting} label={'INICIAR SESION'} sx={{ fontWeight: 'bold', fontSize: '16px', width: '200px', height: '65px' }} />
             </Stack>
 
             <Box textAlign="center" mt={4}>

@@ -16,6 +16,14 @@ export const Nav = () => {
     fontFamily: 'OpenSans-Regular',
   };
 
+  const links = [
+    { label: 'Location', href: '/app/location' },
+    { label: 'Blog', href: '/app/blog' },
+    { label: 'Services', href: '/app/services' },
+    { label: 'About Us', href: '/app/about-us' },
+    { label: 'Franchise With Us', href: '/app/franchise-with-us' },
+  ];
+
   return (
     <Box sx={{ position: 'relative', zIndex: 10, height: '100vh' }}>
       <Box
@@ -36,31 +44,31 @@ export const Nav = () => {
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'space-between',
-          px: 4,
-          py: 2,
+          px: 6,
+          py: 3,
         }}
       >
-        <Logo height="50px" width="50px" />
+        <Link sx={{ cursor: 'pointer' }} href={'/app/home'}>
+          <Logo height="100px" width="100px" />
+        </Link>
         
-        <Stack
+        <Box
           direction="row"
           spacing={3}
-          sx={{ display: 'flex', alignItems: 'center' }}
+          sx={{ display: 'flex', alignItems: 'start', gap: '15px', justifyContent: 'center', height: '100px' }}
         >
-          {['Location', 'Blog', 'Services', 'About Us', 'Franchise With Us'].map(
-            (label, index) => (
-              <Link
-                key={index}
-                href={`/${label.toLowerCase().replace(/\s/g, '-')}`}
-                variant="body2"
-                color="inherit"
-                underline="none"
-                sx={{ cursor: 'pointer' }}
-              >
-                <Typography sx={styledTypography}>{label}</Typography>
-              </Link>
-            )
-          )}
+          {links.map(({ label, href }, index) => (
+            <Link
+              key={index}
+              href={href}
+              variant="body2"
+              color="inherit"
+              underline="none"
+              sx={{ cursor: 'pointer' }}
+            >
+              <Typography sx={styledTypography}>{label}</Typography>
+            </Link>
+          ))}
           
           <Link
             onClick={handleLogout}
@@ -71,7 +79,7 @@ export const Nav = () => {
           >
             <Typography sx={styledTypography}>Logout</Typography>
           </Link>
-        </Stack>
+        </Box>
       </Box>
     </Box>
   );

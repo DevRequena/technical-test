@@ -17,7 +17,7 @@ export default function TextFieldButton({ placeholder = '', route = '#', sx = {}
     <StyledTextField
       placeholder={placeholder}
       variant="outlined"
-      sx={sx} // Agrega `sx` aquí para aceptar estilos personalizados
+      sx={sx}
       InputProps={{
         endAdornment: (
           <InputAdornment position="end">

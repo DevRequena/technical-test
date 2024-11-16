@@ -2,24 +2,24 @@ import { Box, Typography } from '@mui/material'
 import React from 'react'
 import TextFieldButton from '../../../components/TextFieldButton/TextFieldButton'
 
-export const ServiceInfo = () => {
+export const ServiceInfo = ({width, textAlign, title, subTitle, info, placeholder}) => {
   return (
     <Box
     sx={{
-      width: '40%',
-      textAlign: 'start'
+      width: width,
+      textAlign: textAlign
     }}
   >
     <Typography sx={{ fontFamily: 'SegoeUI-Bold', fontSize: '40px', color: '#FF6752' }}>
-      Our Services
+      {title}
     </Typography>
     <Typography sx={{ fontFamily: 'OpenSans-Regular', color: '#808080', fontSize: '16px', marginTop: '20px', width: '80%' }}>
-      National Brand With a Local Feel. Experience the Fetch! Difference
+      {subTitle}
     </Typography>
     <Typography sx={{ fontFamily: 'SegoeUI-Bold', color: '#FF6752', fontSize: '16px', marginTop: '20px' }}>
-      Enter Your Location and Fetch Our Services
+      {info}
     </Typography>
-    <TextFieldButton placeholder='Zip Code' sx={{ width: '200px', marginTop: '3%' }} />
+    <TextFieldButton placeholder={placeholder} sx={{ width: '200px', marginTop: '3%' }} />
 
   </Box>
   )

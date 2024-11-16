@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Box, Button } from '@mui/material';
+import { Box, Button, Typography } from '@mui/material';
 import IconButtonImage from '../../../components/Icon/IconButton';
 
 const Carousel = ({ data }) => {
@@ -23,17 +23,17 @@ const Carousel = ({ data }) => {
   return (
     <Box
       sx={{
-        width: '100%',
-        height: '500px',
+        width: '70%',
+        minWidth: '900px',
+        height: '350px',
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
-        marginTop: '10%',
+        overflow: 'hidden'
       }}
     >
-      <Box sx={{ width: '83%', height: '100%', display: 'flex', alignItems: 'center' }}>
         <Button sx={{ height: '50px' }} onClick={prevCard} disabled={currentIndex === 0}>
-          <IconButtonImage rotate={'180deg'} backgroundColor={currentIndex === 0 && 'grey'} />
+          <IconButtonImage rotate={'180deg'} disabled={currentIndex === 0 } />
         </Button>
 
         <Box
@@ -58,7 +58,7 @@ const Carousel = ({ data }) => {
                     position: 'absolute',
                     transition: 'all 0.5s ease-in-out',
                     transform: `translateX(${isLeft ? '-55%' : isRight ? '55%' : '0'}) scale(${
-                      isCenter ? 1 : 0.8
+                      isCenter ? 1.1 : 0.89
                     })`,
                     zIndex: isCenter ? 20 : 10,
                   }}
@@ -69,22 +69,22 @@ const Carousel = ({ data }) => {
                       flexDirection: 'column',
                       alignItems: 'center',
                       justifyContent: 'center',
-                      gap: '16px',
-                      width: '27.5rem',
+                      gap: '10px',
+                      width: '100%',
                       height: '14rem',
-                      backgroundColor: isCenter ? '#4A90E2' : '#FF4C4C', // Color central y lateral
+                      backgroundColor: isCenter ? '#FC6844' : '#4587FE',
                       backgroundSize: 'cover',
                       backgroundPosition: 'center',
                       borderRadius: '14px',
-                      padding: '32px',
                       boxShadow: '0 4px 8px rgba(0,0,0,0.3)',
                       aspectRatio: '16/9',
+                      padding: '2px',
                     }}
                   >
                     <img
-                      src={item.elemento}
+                      src={item.avatar}
                       alt={item.nombre}
-                      style={{ width: '80px', height: '80px', borderRadius: '50%' }}
+                      style={{ width: '70px', height: '70px', borderRadius: '50%' }}
                     />
                     <h4
                       style={{
@@ -92,22 +92,26 @@ const Carousel = ({ data }) => {
                         fontWeight: '400',
                         color: '#D1D1D1',
                         fontSize: '18px',
+                        fontFamily: 'OpenSans-Bold',
                       }}
                     >
-                      {item.nombre + ' ' + item.nombre}
+                      {item.first_name + ' ' + item.last_name}
                     </h4>
-                    <p
-                      style={{
-                        fontFamily: 'Open Sans',
-                        fontWeight: '400',
+                    <Typography
+                      sx={{
+                        fontFamily: 'OpenSans-Regular',
+                        fontSize: '14px',
+                        fontWeight: '100',
                         color: '#D1D1D1',
                         textAlign: 'center',
+                        width: '90%',
+                        lineHeight: '20px',
                       }}
                     >
                       {
-                        'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Hic sequi blanditiis fugiat? Amet, sit illum recusandae beatae vero quibusdam'
+                        '" I like that I got to meet the dog Walker who is walking my dog daily and consult with her. I also appreciate the daily communication I get about the dog and how my dog is doing"'
                       }
-                    </p>
+                    </Typography>
                   </Box>
                 </Box>
               );
@@ -115,10 +119,9 @@ const Carousel = ({ data }) => {
         </Box>
 
         <Button sx={{ height: '50px' }} onClick={nextCard} disabled={currentIndex === totalData - 1}>
-          <IconButtonImage backgroundColor={currentIndex === totalData - 1 && 'grey'} />
+          <IconButtonImage disabled={currentIndex === totalData - 1} />
         </Button>
       </Box>
-    </Box>
   );
 };
 
